@@ -30,7 +30,10 @@
                     <label>enter your expence amound</label>
                     <p id="not-num"></p>
                     <input type="text" name="expence-amound" id="expence-amound">
-                    <button class="text-capitalize" id="expense">add expence</button>
+                    <div class="buttons">
+                        <button class="text-capitalize" id="expense">add expence</button>
+                        <button class="text-capitalize" onclick="location.reload();">Refresh</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-7 my-4">
@@ -38,32 +41,27 @@
                     <div class="i-have">
                         <h4>budget</h4>
                         <i class="fas fa-money-bill-alt fa-3x"></i>
-                        <h2 id="money-i-have"><i class="fas fa-dollar-sign fa-1x"></i></h2>
+                        <h3 id="money-i-have"><i class="fas fa-dollar-sign fa-1x"></i> 0</h3>
                     </div>
                     <div class="i-have">
                         <h4>expenses</h4>
                         <i class="fa fa-credit-card fa-3x"></i>
-                        <h2><i class="fas fa-dollar-sign fa-1x"></i> 5464</h2>
+                        <h3 id="show-expene"><i class="fas fa-dollar-sign fa-1x"></i> 0</h3>
                     </div>
                     <div class="i-have">
                         <h4>balance</h4>
                         <i class="fas fa-dollar-sign fa-3x"></i>
-                        <h2><i class="fas fa-dollar-sign fa-1x"></i> 5464</h2>
+                        <h3 id="balence-i-have"><i class="fas fa-dollar-sign fa-1x"></i> 0</h3>
                     </div>
                 </div>
                 <div class="text-capitalize show-expence my-4">
-                    <div class="title-row">
+                    <div class="title-row my-3">
                         <p>expense title</p>
                         <p>expense value</p>
                         <p>expense edit</p>
                     </div>
-                    <div class="item1">
-                        <h6 id="item-name">item1</h6>
-                        <h6 id="cost">6543</h6>
-                        <div class="icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </div>
+                    <div class="expense-items">
+                        
                     </div>
                 </div>
             </div>

@@ -42,6 +42,7 @@ input{
     border-width: 2px;
     border-radius: 8px;
     padding: 5px;
+    border: 2px solid black;
     font-weight: 500;
     font-size: larger;
 }
@@ -53,6 +54,12 @@ button{
     border: 3px solid lightgreen;
     outline: transparent;
     margin: .4rem 0 0 0 ;
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .my-expence{
     display: flex;
@@ -93,7 +100,8 @@ button{
     display: flex;
     justify-content: space-around;
 }
-.item1{
+.item{
+    margin: .5rem 0;
     display: flex;
     justify-content: space-around;
 }
