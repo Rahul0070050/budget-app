@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(220, 254, 255);
+}
+.container{
+    font-family: 'Rubik', sans-serif;
+    min-height: 100vh;
+}
+.left-section{
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+.budget{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 5px;
+    min-height: 160px;
+    border: 3px solid lightgreen;
+}
+.budget p{
+    margin: 0;
+    color: red;
+}
+#not-num{
+    color: red;
+    margin: 0;
+}
+label{
+    margin: 0 !important;
+}
+input{
+    width: 100%;
+    outline: none;
+    border-width: 2px;
+    border-radius: 8px;
+    padding: 5px;
+    font-weight: 500;
+    font-size: larger;
+}
+button{
+    cursor: pointer;
+    padding: .3rem 1rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 3px solid lightgreen;
+    outline: transparent;
+    margin: .4rem 0 0 0 ;
+}
+.my-expence{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 230px;
+    border: 3px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+.my-expence button{
+    border: 3px solid gray !important;
+    margin: .4rem 0;
+}
+
+.budget-detailse{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+.budget-detailse .i-have i{
+    margin: .5rem 0;
+}
+.budget-detailse .i-have h4{
+    font-weight: 600;
+}
+
+.show-expence{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-row{
+    word-wrap: break-word;
+    display: flex;
+    justify-content: space-around;
+}
+.item1{
+    display: flex;
+    justify-content: space-around;
+}

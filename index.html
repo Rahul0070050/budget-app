@@ -4,17 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/title img.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css">
     <title>BUDGET</title>
 </head>
 
 <body>
-    
-
-
+    <div class="container py-3">
+        <h4 class="text-uppercase mt-4">budget app</h4>
+        <div class="row">
+            <div class="col-md-5 left-section my-3">
+                <div class="budget text-capitalize my-3">
+                    <label class="">please enter your budget</label>
+                    <p id="not-a-number"></p>
+                    <input type="text" name="all-budget" id="my-budget">
+                    <button class="text-capitalice" id="budget-submit">calculate</button>
+                </div>
+                <div class="my-expence algne-items-senter text-capitalize my-3">
+                    <label>enter your expence</label>
+                    <input type="text" name="name" id="expence-name">
+                    <label>enter your expence amound</label>
+                    <p id="not-num"></p>
+                    <input type="text" name="expence-amound" id="expence-amound">
+                    <button class="text-capitalize" id="expense">add expence</button>
+                </div>
+            </div>
+            <div class="col-md-7 my-4">
+                <div class="budget-detailse text-uppercase">
+                    <div class="i-have">
+                        <h4>budget</h4>
+                        <i class="fas fa-money-bill-alt fa-3x"></i>
+                        <h2 id="money-i-have"><i class="fas fa-dollar-sign fa-1x"></i></h2>
+                    </div>
+                    <div class="i-have">
+                        <h4>expenses</h4>
+                        <i class="fa fa-credit-card fa-3x"></i>
+                        <h2><i class="fas fa-dollar-sign fa-1x"></i> 5464</h2>
+                    </div>
+                    <div class="i-have">
+                        <h4>balance</h4>
+                        <i class="fas fa-dollar-sign fa-3x"></i>
+                        <h2><i class="fas fa-dollar-sign fa-1x"></i> 5464</h2>
+                    </div>
+                </div>
+                <div class="text-capitalize show-expence my-4">
+                    <div class="title-row">
+                        <p>expense title</p>
+                        <p>expense value</p>
+                        <p>expense edit</p>
+                    </div>
+                    <div class="item1">
+                        <h6 id="item-name">item1</h6>
+                        <h6 id="cost">6543</h6>
+                        <div class="icons">
+                            <i class="fas fa-edit"></i>
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./js/javaScript.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
