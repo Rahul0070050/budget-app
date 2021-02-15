@@ -1,72 +1,111 @@
-const budgetSubmit = document.getElementById("budget-submit");
-const expenseAdding = document.getElementById("expense");
+const submitBudjetButton = document.getElementById("budget-submit");
+const addExpenseButton = document.getElementById("expense");
+const expenseContainer = document.querySelector(".expense-container");
+const showMyBudjet = document.getElementById("show-my-budjet");
+const showMyExpense = document.getElementById("show-my-expense");
+const showMyBalense = document.getElementById("show-my-balanse");
 
-var budget;
-var expenseName;
-var expenseValue;
-var container;
-var itemBody;
-var itemName;
-var cost;
-var icons;
-var edit;
-var trash;
+let myBudject;
+let balense;
+let myExpense;
+let expense = [];
+let EDIT = false;
 
-budgetSubmit.addEventListener("click", function () {
-    budget = document.getElementById("my-budget").value;
-    if (!isNaN(budget)) {
-        document.getElementById("money-i-have").innerHTML = '<i class="fas fa-dollar-sign fa-1x"></i> ' + budget;
-        document.getElementById("not-a-number").innerHTML = '';
-        document.getElementById("my-budget").value = '';
-    } else {
-        document.getElementById("not-a-number").innerHTML = 'Enter number';
+const budjectSubmit = () => {
+    let budJect = document.getElementById("my-budget").value;
+    document.getElementById("my-budget").value = "";
+    myBudject = parseInt(budJect);
+    showMyBudjet.innerText = myBudject;
+}
+
+const addExpense = () => {
+    if (EDIT) {
+        let newName = document.getElementById("expence-name").value;
+        let newExpenceValue = document.getElementById("expence-amound").value;
+        let id = document.getElementById("id").value;
+        let newExpense = {
+            id: id,
+            name: newName,
+            expence: parseInt(newExpenceValue)
+        }
+        let expenc = expense.filter((expenc) => expenc.id != id);
+        expense = [...expenc,newExpense]
+        document.getElementById("expence-name").value = '';
+        document.getElementById("expence-amound").value = '';
+        setItems(expense)
+        EDIT = false;
+        return;
     }
-});
-
-
-
-function createItem(){
-    let allExpensse = document.querySelector(".expense-items");
-    let item = document.createElement("div");
-    item.classList.add("item");
-
-
-    item.innerHTML = '<h6 id="item-name"></h6>' +
-        '            <h6 id="cost"></h6>' +
-        '            <div class="icons">' +
-        '            <i class="fas fa-edit"></i>' +
-        '            <i class="fa fa-trash" aria-hidden="true"></i>' +
-        '                </div>';
-        allExpensse.appendChild(item);
-        document.getElementById("item-name").innerHTML = expenseName;
-        document.getElementById("cost").innerHTML = expenseValue;
+    let newName = document.getElementById("expence-name").value;
+    let newExpenceValue = document.getElementById("expence-amound").value;
+    if (balense >= 0) alert("Increase your budject")
+    if (myBudject == undefined) return
+    document.getElementById("expence-name").value = '';
+    document.getElementById("expence-amound").value = '';
+    let newExpense = {
+        id: new Date().getTime().toString(),
+        name: newName,
+        expence: parseInt(newExpenceValue)
+    }
+    expense = [...expense, newExpense]
+    calculateExpence(expense);
 }
 
 
-expenseAdding.addEventListener("click", function () {
-
-    
-
-    expenseName = document.getElementById("expence-name").value;
-    expenseValue = document.getElementById("expence-amound").value;
-
-    if (!isNaN(expenseValue)) {
-        let balense = budget - expenseValue;
-        if (expenseValue && expenseName) {
-            if (!isNaN(balense)) {
-                createItem();
-                document.getElementById("balence-i-have").innerHTML = '<i class="fas fa-dollar-sign fa-1x"></i> ' + balense;
-            }
-            document.getElementById("show-expene").innerHTML = '<i class="fas fa-dollar-sign fa-1x"></i> ' + expenseValue;
+const calculateExpence = (expense) => {
+    myExpense = expense.reduce((total, expense) => total + expense.expence, 0);
+    balense = myBudject - myExpense
+    showMyBalense.innerText = balense
+    showMyExpense.innerText = myExpense
+    setItems(expense);
+}
 
 
-            document.getElementById("not-num").innerHTML = '';
-            document.getElementById("expence-name").value = "";
-            document.getElementById("expence-amound").value = "";
-        }
+const setItems = (expense) => {
+    let fullExpense = ''
+    expense.map((expense) => {
+        const { id, name, expence } = expense;
+        fullExpense +=
+            `
+            <div class="expense-items">
+                <span class="widthval">
+                    <h6 id="item-name">${name}</h6>
+                </span>
+                <span class="widthval">
+                    <h6 id="cost">${expence}</h6>
+                </span>
+                <div class="icons">
+                    <i class="fas fa-edit" onclick="editExpense(${id})"></i>
+                    <i class="fa fa-trash" aria-hidden="true" onclick="deletExpense(${id})"></i>
+                </div>
+            </div>
+            `
+    })
+    expenseContainer.innerHTML = fullExpense
+}
+
+submitBudjetButton.addEventListener("click", budjectSubmit);
+addExpenseButton.addEventListener("click", addExpense);
 
 
-    } else {
-        document.getElementById("not-num").innerHTML = 'Enter number';
-    }
-});
+const editExpense = (itid) => {
+    EDIT = true;
+    let expens = expense.find((expense) => expense.id == itid);
+    const { name, expence, id } = expens
+    document.getElementById("expence-name").value = name;
+    document.getElementById("expence-amound").value = expence;
+    document.getElementById("id").value = id;
+    console.log(id);
+}
+
+
+const deletExpense = (itid) => {
+    let expens = expense.filter((expense) => expense.id != itid);
+    let {expence} = expense.find((expense) => expense.id == itid);
+    balense += expence;
+    myExpense -= expence;
+    showMyExpense.innerText = myExpense;
+    showMyBalense.innerText = balense;
+    expense = [...expens];
+    setItems(expens);
+}

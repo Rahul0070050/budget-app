@@ -21,18 +21,19 @@
                 <div class="budget text-capitalize my-3">
                     <label class="">please enter your budget</label>
                     <p id="not-a-number"></p>
-                    <input type="text" name="all-budget" id="my-budget">
-                    <button class="text-capitalice" id="budget-submit">calculate</button>
+                    <input type="number" name="my-udget" id="my-budget">
+                    <button class="text-capitalice" id="budget-submit">Submit</button>
                 </div>
                 <div class="my-expence algne-items-senter text-capitalize my-3">
                     <label>enter your expense</label>
                     <input type="text" name="name" id="expence-name">
                     <label>enter your expense amound</label>
                     <p id="not-num"></p>
-                    <input type="text" name="expence-amound" id="expence-amound">
+                    <input type="number" name="expence-amound" id="expence-amound">
+                    <input type="number" name="expence-amound" id="id" hidden>
                     <div class="buttons">
                         <button class="text-capitalize" id="expense">add expense</button>
-                        <button class="text-capitalize" onclick="location.reload();">Refresh</button>
+                        <button class="text-capitalize" onclick="location.reload();">Clear</button>
                     </div>
                 </div>
             </div>
@@ -41,17 +42,17 @@
                     <div class="i-have mx-2">
                         <h4>budget</h4>
                         <i class="fas fa-money-bill-alt fa-3x"></i>
-                        <h3 id="money-i-have"><i class="fas fa-dollar-sign fa-1x"></i> 0</h3>
+                        <h3 id="money-i-have"><i class="fas fa-dollar-sign fa-1x"></i> <span id="show-my-budjet">0</span></h3>
                     </div>
                     <div class="i-have mx-2">
                         <h4>expenses</h4>
                         <i class="fa fa-credit-card fa-3x"></i>
-                        <h3 id="show-expene"><i class="fas fa-dollar-sign fa-1x"></i> 0</h3>
+                        <h3 id="show-expene"><i class="fas fa-dollar-sign fa-1x"></i> <span id="show-my-expense">0</span></h3>
                     </div>
                     <div class="i-have mx-2">
                         <h4>balance</h4>
                         <i class="fas fa-dollar-sign fa-3x"></i>
-                        <h3 id="balence-i-have"><i class="fas fa-dollar-sign fa-1x"></i> 0</h3>
+                        <h3 id="balence-i-have"><i class="fas fa-dollar-sign fa-1x"></i> <span id="show-my-balanse">0</span></h3>
                     </div>
                 </div>
                 <div class="text-capitalize show-expence my-4">
@@ -60,8 +61,8 @@
                         <p>expense value</p>
                         <p>expense edit</p>
                     </div>
-                    <div class="expense-items">
-                        
+                    <div class="expense-container">
+                        <!-- BBBBBBBBBBBBBBBBBBBBBBB -->
                     </div>
                 </div>
             </div>
