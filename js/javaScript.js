@@ -29,7 +29,7 @@ const addExpense = () => {
             expence: parseInt(newExpenceValue)
         }
         let expenc = expense.filter((expenc) => expenc.id != id);
-        expense = [...expenc,newExpense]
+        expense = [...expenc, newExpense]
         document.getElementById("expence-name").value = '';
         document.getElementById("expence-amound").value = '';
         setItems(expense)
@@ -76,7 +76,7 @@ const setItems = (expense) => {
                 </span>
                 <div class="icons">
                     <i class="fas fa-edit" onclick="editExpense(${id})"></i>
-                    <i class="fa fa-trash" aria-hidden="true" onclick="deletExpense(${id})"></i>
+                    <i class="fa fa-trash" aria-hidden="true"onclick="deletExpense(${id})"></i>
                 </div>
             </div>
             `
@@ -98,10 +98,11 @@ const editExpense = (itid) => {
     console.log(id);
 }
 
-
 const deletExpense = (itid) => {
+    let Delete = confirm("Do you want to Delet");
+    if (!Delete) return;
     let expens = expense.filter((expense) => expense.id != itid);
-    let {expence} = expense.find((expense) => expense.id == itid);
+    let { expence } = expense.find((expense) => expense.id == itid);
     balense += expence;
     myExpense -= expence;
     showMyExpense.innerText = myExpense;
